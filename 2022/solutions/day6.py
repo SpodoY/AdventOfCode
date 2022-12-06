@@ -9,4 +9,4 @@ def solver(msg_length):
 
 
 print(f'Part 1:  {solver(4)}')
-print(f'Part 1:  {solver(14)}')
+print(f'Part 2:  {solver(14)}')
