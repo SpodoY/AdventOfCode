@@ -6,10 +6,6 @@ print(puzzle_input)
 forest_length = len(puzzle_input)
 
 
-def three_dimensional_array(rows, columns, element_size):
-    return [[[0 for _ in range(element_size)] for _ in range(columns)] for _ in range(rows)]
-
-
 def part_one():
     forest_size = forest_length * forest_length
     uncertain_size = (forest_length - 2) * (forest_length - 2)
@@ -22,7 +18,7 @@ def part_one():
             right = max(puzzle_input[y][x + 1:])
             if any(puzzle_input[y][x] > direction for direction in [up, down, left, right]):
                 visibles += 1
-    print(visibles)
+    print(f'Part 1: {visibles}')
 
 
 def part_two():
@@ -37,13 +33,13 @@ def part_two():
 
             for index, direction in enumerate([up, left, down, right]):
                 cur_bool = [curPos > el for el in direction]
-                scenic_scores[y-1][x-1][index] = cur_bool
+                scenic_scores[y - 1][x - 1][index] = cur_bool
 
             # print(f'Up: {up} Down: {down} Left: {left} Right: {right}')
     scores = []
     for x in range(len(scenic_scores)):
         scores.extend(height_score(scenic_scores[y][x]) for y in range(len(scenic_scores)))
-    return max(scores)
+    print(f'Part 2: {max(scores)}')
 
 
 def height_score(entry):
@@ -58,5 +54,6 @@ def height_score(entry):
     # print(scores)
     return prod(scores)
 
-# part_one()
-print(part_two())
+
+part_one()
+part_two()
