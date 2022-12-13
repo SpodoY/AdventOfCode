@@ -16,7 +16,7 @@ def extractCrates():
 
 
 def infoFromOp(op):
-    return [int(x) for x in re.findall(r'\d+', op)]
+    return [int(x) for x in re.findall(r"\d+", op)]
 
 
 def solver(part2):
